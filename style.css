@@ -3,13 +3,13 @@ body {
   margin-bottom: 0%;
   margin-left: 0%;
   margin-right: 0%;
+  height: 100%;
 }
 
 header {
   text-align: center;
   padding-top: 20px;
   padding-bottom: 15px;
-  width: 100%;
 }
 
 .location {
@@ -127,7 +127,6 @@ header {
   top: 505px;
   left: 32.51px;
   border-radius: 20px;
-  opacity: 0px;
   border: none;
   background-color: #f6f6f6;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1490196078);
@@ -225,6 +224,7 @@ header {
   top: -40px;
   font-size: 25px;
   color: black;
+  width: 25px;
 }
 .restaurants .btn-new {
   position: relative;
@@ -268,11 +268,10 @@ a {
 }
 
 .footer {
-  width: 375px;
   height: 160px;
   top: 2066px;
   background-color: #353535;
-  padding: 22px 25px 22px 20px;
+  padding: 22px 0px 22px 20px;
   gap: 16px;
   opacity: 1;
 }

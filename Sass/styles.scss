@@ -7,6 +7,7 @@ body{
     margin-bottom: 0%;
     margin-left: 0%;
     margin-right: 0%;
+    height: 100%;
 }
 
 // Début du HEADER //
@@ -14,7 +15,7 @@ header{
     text-align: center;
     padding-top: 20px;
     padding-bottom: 15px;
-    width: 100%;
+    
 }
 // Fin du HEADER //
 
@@ -134,7 +135,7 @@ color:$text-white;
     top: 505px;
     left: 32.51px;
     border-radius: 20px;
-    opacity: 0px;
+  
     border: none;
     background-color:$background;
     box-shadow: 0px 4px 15px 0px #00000026;
@@ -241,6 +242,7 @@ img {
                     top: -40px;
                     font-size: 25px;
                     color: black;
+                    width: 25px;
                 }
             }
         }
@@ -263,6 +265,7 @@ img {
         text-align: center;
         text-underline-position: from-font;
         text-decoration-skip-ink: none;
+        
     }
 
     .btn-new2 {
@@ -282,6 +285,7 @@ img {
         text-align: center;
         text-underline-position: from-font;
         text-decoration-skip-ink: none;
+       
     }
 }
 
@@ -292,11 +296,11 @@ a {
 
 // Début de FOOTER //
 .footer {
-    width: 375px; // Retire "Fixed" 
-    height: 160px; // Retire "Hug" 
+   
+    height: 160px; 
     top: 2066px;
     background-color: $text-secondary;
-    padding: 22px 25px 22px 20px; // Combine padding et padding-left
+    padding: 22px 0px 22px 20px; // Combine padding et padding-left
     gap: 16px;
     opacity: 1; // Change pour rendre visible
 
