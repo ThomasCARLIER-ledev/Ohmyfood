@@ -18,3 +18,13 @@
     text-decoration-skip-ink: none;
     color: $text-primary;
 }
+
+@mixin button-command {
+    width: 218px;
+    height: 50px;
+    border-radius: 25px;
+    background: $primary-gradient;
+    border: none;
+    box-shadow: 0px 4px 10px 0px $shadow-color;
+    margin-bottom: 20px;
+}

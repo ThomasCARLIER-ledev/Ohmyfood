@@ -3,12 +3,64 @@
 @import 'variables';
 
 body{
-    margin-top: 0%;
-    margin-bottom: 0%;
+    margin: 0%;
     margin-left: 0%;
-    margin-right: 0%;
-    height: 100%;
 }
+
+// Début du loader //
+.loader__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #f1f1f1;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 4s forwards;
+}
+
+
+.dot {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: $primary-gradient;
+    margin: 0 15px;
+    animation: loader 10 0.3s alternate; /* Animation des points */
+}
+
+.d2 {
+    animation-delay: 0.05s;
+}
+
+.d3 {
+    animation-delay: 0.1s;
+}
+
+@keyframes loader {
+    100% {
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    90% {
+        opacity: 0.8;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+// Début du loader //
 
 // Début du HEADER //
 header{
@@ -52,6 +104,7 @@ header{
 .functioning{
     margin-bottom: 70px;
 }
+
 .reservation__section {
     text-align: center;
     background-color: $background;
@@ -61,6 +114,18 @@ header{
     @include title ;
     }
      
+.br-mobile {
+    display: block; /* Affiche le <br> sur mobile (par défaut) */
+    
+    @media (min-width:768px) and (max-width:1024px){ 
+        display: none; /* Masque le <br> sur desktop */
+    }
+
+    @media (min-width: 1025px){
+        display: none; /* Masque le <br> sur desktop */
+    }
+}
+    
 .reservation__paragraph {
     font-family: Roboto;
     font-size: 18px;
@@ -70,9 +135,20 @@ header{
     text-decoration-skip-ink: none;
     color: $text-secondary;
     }
+   
+.link__reservation{
+    transition: transform 450ms 0ms, opacity 300ms 2000ms;
     
+    & :hover {
+       
+        transform: scale(1.01);
+        opacity: 0.8;
+    }
+}    
+
 .reservation__buton {
     @include button-style;
+   
 }
 
 .texte-bouton  {
@@ -84,10 +160,8 @@ text-align: center;
 text-underline-position: from-font;
 text-decoration-skip-ink: none;
 color:$text-white;
-     } 
-    
+}   
 }
-
 // Fin de RESERVATION //
 
 // Début de FONCTIONNEMENT //
@@ -100,13 +174,47 @@ color:$text-white;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
     padding-left: 20px;
-    padding-top: 30px;
+    padding-top: 30px;  
+    
+    @media (min-width: 768px) and (max-width: 1024px){
+        margin-left: 100px;
+        padding-bottom: 15px;
+        }
+ 
+    @media (min-width: 1025px){
+         margin-left: 160px;
+         padding-bottom: 15px;
+        }
+ 
+}
+
+.functioning__total{
+    @media (min-width: 768px) and (max-width: 1024px){
+       margin-left: 100px;
+    }
+
+    @media (min-width: 1025px){
+        display:flex;
+        flex-direction: row;
+        
+        width: 1200px;
+        margin: 0 auto; 
+       } 
+}
+
+.functioning__buton{
+    position: relative;
+
+    @media (min-width: 1025px){
+        display:flex;
+        flex-direction: row;
+       }
 }
 
 .number {
-    position: relative;
-    bottom: -50px;
-    right: -20px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
 
     width: 25px;
     height: 25px;
@@ -124,13 +232,15 @@ color:$text-white;
     border-radius: 50%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
 }
 
 .functioning__buton--form {
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     margin-left: 30px;
-    width: 330px;
+    margin-right: 30px;
+    
+    width: 322px;
     height: 72.38px;
     top: 505px;
     left: 32.51px;
@@ -139,7 +249,6 @@ color:$text-white;
     border: none;
     background-color:$background;
     box-shadow: 0px 4px 15px 0px #00000026;
-    margin-bottom: 0px;    
 
 .bouton--form {
     display: flex;
@@ -153,7 +262,7 @@ color:$text-white;
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-        
+    
 img {
         margin-right: 25px; /* Add extra margin to the right of the image */
         }
@@ -166,128 +275,189 @@ img {
     background-color: $background;
     padding-bottom: 50px;
     margin-top: 50px;
-    position: relative; 
+     position: relative;
+}
 
-    &__title {
+.restaurants__title {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28.13px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    padding-left: 20px;
+    padding-top: 15px;
+    margin-bottom: 0px;
+
+    @media (min-width: 768px) and (max-width: 1024px){
+        margin-left: 100px;
+     }
+ 
+     @media (min-width: 1025px){
+        margin-left: 150px;
+     }
+}
+
+.restaurants__cards {
+    display: flex;
+    flex-direction: column; 
+
+    @media (min-width: 768px) and (max-width: 1024px){
+        display: grid;
+        grid-template-columns: 50% auto;
+        text-align: center;
+        margin-left: 100px;
+     }
+ 
+     @media (min-width: 1025px){
+        display: grid;
+        grid-template-columns: 50% auto;
+        margin-left: 10px;
+     }
+}
+
+.h{
+    position: relative;
+    width: 340px;
+    height: 251px;
+    gap: 20px;
+    border-radius: 15px 0px 0px 0px;
+    
+    margin-bottom: 20px;
+    margin-top: 15px;
+
+    @media (min-width: 768px) and (max-width: 1024px){
+        
+     }
+ 
+     @media (min-width: 1025px){
+        width: 490px;
+     }
+}
+
+.btn-new {
+    position: absolute;
+    top: 20px;
+    left: 270px;
+    width: 80px;
+    height: 29px;
+    background-color: $bkcolorbtnnew;
+    color: $colorbtnnew;
+    border-radius: 3px;
+    border: none;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16.41px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none; 
+
+    @media (min-width: 1025px){
+        position: absolute;  
+        left : 390px;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 346px;
+    border-radius: 15px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    position: relative;
+
+    @media (min-width: 1025px){
+        width: 470px;
+        
+       margin-bottom: 100px;
+     }
+}
+
+.card  img {
+    width: 100%;
+    height: 180px;
+    border-radius: 15px 15px 0 0;
+    }
+
+.card-content {
+    padding: 20px;
+    padding-bottom: 20px;
+    display: grid;
+    grid-template-rows: auto;
+    justify-content: space-between; 
+    align-items: center;
+    background-color: white; 
+    border-radius: 0 0 15px 15px;
+
+    
+    h3 {
         font-family: Roboto;
-        font-size: 24px;
+        font-size: 18px;
         font-weight: 700;
-        line-height: 28.13px;
+        line-height: 21.09px;
         text-align: left;
         text-underline-position: from-font;
         text-decoration-skip-ink: none;
-        padding-left: 20px;
-        padding-top: 15px;
         margin-bottom: 0px;
-    }
-
-    &__cards {
-        display: flex;
-        flex-direction: column;
-
-        .card {
-            display: flex;
-            flex-direction: column;
-            width: 346px;
-            border-radius: 15px;
-            margin-left: 20px;
-            margin-bottom: 20px;
-            background-color: white;
-
-            img {
-                width: 100%;
-                height: 180px;
-                border-radius: 15px 15px 0 0;
-            }
-
-            .card-content {
-                padding: 20px;
-                padding-bottom: 0px;
-                display: grid;
-                grid-template-rows: auto;
-                justify-content: space-between; 
-                align-items: center;
-                background-color: white; 
-                border-radius: 0 0 15px 15px;
-
-                h3 {
-                    font-family: Roboto;
-                    font-size: 18px;
-                    font-weight: 700;
-                    line-height: 21.09px;
-                    text-align: left;
-                    text-underline-position: from-font;
-                    text-decoration-skip-ink: none;
-                    margin-bottom: 0px;
-                    margin-top: 0px;
-                    color: $text-primary;
-                }
-
-                p {
-                    font-family: Roboto;
-                    font-size: 17px;
-                    font-weight: 300;
-                    line-height: 19.92px;
-                    text-align: left;
-                    text-underline-position: from-font;
-                    text-decoration-skip-ink: none;
-                    margin-bottom: 0px;
-                    margin-top: 5px;
-                    color: $text-primary;
-                }
-
-                .fa-regular {
-                    position: relative;
-                    right: -280px;
-                    top: -40px;
-                    font-size: 25px;
-                    color: black;
-                    width: 25px;
-                }
-            }
+        margin-top: 0px;
+        color: $text-primary;
         }
-    }
-
-    .btn-new {
-        position: relative;
-        bottom: -40px;
-        right: -270px;  
-        width: 80px;
-        height: 29px;
-        background-color: $bkcolorbtnnew;
-        color: $colorbtnnew;
-        border-radius: 3px;
-        border: none;
+    
+    p {
         font-family: Roboto;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 16.41px;
-        text-align: center;
+        font-size: 17px;
+        font-weight: 300;
+        line-height: 19.92px;
+        text-align: left;
         text-underline-position: from-font;
         text-decoration-skip-ink: none;
-        
-    }
+        margin-bottom: 0px;
+        margin-top: 5px;
+        color: $text-primary;
+        }
+}  
 
-    .btn-new2 {
-        position: relative;
-        bottom: -422px;
-        right: -270px;  
-        width: 80px;
-        height: 29px;
-        background-color: $bkcolorbtnnew;
-        color: $colorbtnnew;
-        border-radius: 3px;
-        border: none;
-        font-family: Roboto;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 16.41px;
-        text-align: center;
-        text-underline-position: from-font;
-        text-decoration-skip-ink: none;
-       
+.heart-container {
+    position :absolute;
+    right :30px;
+    width: 25px;
+    display: inline-block;
+
     }
-}
+                    
+.fa-solid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 25px;
+    width: 25px;
+    background: $primary-gradient; /* Dégradé */
+    background-clip:border-box;
+    background-clip:text; /* Garder pour une meilleure compatibilité avec les très anciens navigateurs WebKit */
+color: transparent;
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Transition sur l'opacité */
+    }
+                    
+.fa-regular {
+    font-size: 25px;
+    width: 25px;
+    color: black;
+    transition: opacity 0.3s ease; /* Transition sur l'opacité */
+    }
+                    
+.heart-container:hover .fa-solid {
+    opacity: 1;
+    }
+                    
+.heart-container:hover .fa-regular {
+    opacity: 0;
+            }
+
 
 a {
     text-decoration: none;
@@ -303,6 +473,13 @@ a {
     padding: 22px 0px 22px 20px; // Combine padding et padding-left
     gap: 16px;
     opacity: 1; // Change pour rendre visible
+    @media (min-width: 1025px){
+       display: flex;
+       flex-direction: row-reverse;
+       height: 50px;
+       padding-top: 50px;
+       padding-bottom: 5px;
+     }
 
 .footer__title {
     width: 137.58px;
@@ -317,6 +494,13 @@ a {
     text-align: left;
     color: $text-white;
     margin-bottom: 10px;
+
+    @media (min-width: 1025px){
+        padding-left: 50px;
+        padding-right: 50px;
+        width: 100px;
+        height: 20px;
+        }
     }
 
 .footer__link {
@@ -328,6 +512,10 @@ a {
     color: $text-white; // Utilisez la même couleur
     margin-bottom: 0px;
     margin-top: 10px;
+
+    @media (min-width: 1025px){
+        margin-top: 0px;
+        }
     }
 
     .link-container {
@@ -339,5 +527,36 @@ a {
     a {
         text-decoration: none;
     }
+
+}
+@media (min-width: 1025px){
+    .partenariat{
+        display: flex;
+        flex-direction: row;
+        margin-right: 25px;
+        padding-right: 15px;
+        padding-left: 25px;
+    }
+}
+
+@media (min-width: 1025px){
+    .Contact{
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+
+@media (min-width: 1025px){
+    .footer__links--container{
+        display: flex;
+        flex-direction: row;
+        margin-left: 50px;
+    }
+}
+
+a{
+    padding-left: 15px;
 }
 // FIN de FOOTER //
+

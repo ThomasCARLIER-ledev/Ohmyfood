@@ -1,0 +1,428 @@
+@import 'mixins';
+
+@import 'variables';
+
+
+body{
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-top: 0%;
+    min-height: 100vh;
+}
+
+// début header //
+header {
+    display: flex;
+    justify-content: space-between; /* Répartit l'espace entre les éléments */
+    align-items: center; /* Centre verticalement */
+    padding: 20px; /* Ajoute un peu d'espace autour */
+    background-color: white;
+    padding-bottom: 0%;
+}
+
+.logo {
+    
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto; /* Centre le logo s'il est plus petit que l'espace disponible */
+}
+// FIN header //
+
+// début menu visual //
+.image__restaurant{
+    width: 100%;
+    height: 325px;
+    top: 63px;
+}
+
+.menu__visual{
+    transform: translateY(50px);
+}
+// fin menu visual //
+
+.menu{
+    position: relative;
+   height: 100%;
+    background-color: $background;
+    border-radius:25px 25px 0px 0px;
+   
+    @media (min-width: 1025px){
+        margin: 0 auto;
+        width: 1055px;
+            
+    }
+}
+
+.title{
+    position: relative;
+    
+    @media (min-width: 1025px){
+        display: flex;
+        justify-content: center;
+       padding-top: 0px;    
+    }
+
+}
+
+.title__h1{
+    font-family: Shrikhand;
+    font-size: 28px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 40.82px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    
+    width: 341px;
+    height: 27px;
+    left: 17px;
+    gap: 0px;
+    
+    padding-left: 20px;
+    padding-top: 20px;
+    }
+
+.heart-container {
+    position :absolute;
+    right :30px;
+    top: 30px;
+    width: 25px;
+    display: inline-block;
+
+    @media (min-width: 1025px){
+       position: absolute;
+       top:50px;
+       right: 380px;  
+    }
+    }
+                    
+.fa-solid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 25px;
+    width: 25px;
+    background: $primary-gradient; /* Dégradé */
+    -webkit-background-clip: text; /* Applique le dégradé au texte */
+    -webkit-text-fill-color: transparent; /* Rendre le fond du texte transparent */
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Transition sur l'opacité */
+    }
+                    
+.fa-regular {
+    font-size: 25px;
+    width: 25px;
+    color: black;
+    transition: opacity 0.3s ease; /* Transition sur l'opacité */
+    }
+                    
+.heart-container:hover .fa-solid {
+    opacity: 1;
+    }
+                    
+.heart-container:hover .fa-regular {
+    opacity: 0;
+    }
+
+.appetizers{
+    margin-left: 10px;
+    margin-right: 10px;
+    }
+    
+.appetizers h2{
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 18.75px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    width: 275px;
+    height: 27px;
+       
+    color: #000000;
+    padding-top: 10px;
+    border-bottom: 3px solid $bkcolorbtnnew;
+    width: 40px;
+    
+    @media (min-width: 1025px){
+        margin-left: 200px;              
+        }
+    }
+
+
+.h{   
+    position: relative;
+    width: 100%;
+    height: 69px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0px 4.01px 15.04px 0px #0000001A;
+    background-color: $text-white;
+   
+    align-items: center; /* Alignement vertical des éléments */
+    padding: 0 0px; /* Ajout de padding au bouton */
+        
+    @media (min-width: 1025px) {
+        width: 60%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        margin-left: 200px;
+        }
+    }
+
+.param{
+    margin-bottom: 25px;
+}
+.h h3{
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21.09px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: black;
+    padding-top: 10px;
+    margin-left: 5px;
+    margin-bottom: 5px; /* Suppression des marges par défaut */    
+
+}
+       
+.h p{
+    font-family: Roboto;
+    font-size: 15.04px;
+    font-weight: 300;
+    line-height: 17.63px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: black;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    padding-left: 5px;
+    margin: 5px 0 0 0; /* Ajustement de la marge haute uniquement */
+    }
+        
+.price{
+    position: relative;
+    right: -90%;
+    bottom: 30px;
+    margin: 0;
+    width: 25px;
+      
+    @media (min-width: 1025px){
+        left: 90%;             
+        }
+    }
+    
+.check {
+    position: absolute;
+    right:0% ;
+    bottom : 0%;
+    width: 15%; /* Prend 15% du parent pour l'animation */
+    height: 69px;
+    border-radius: 0px 15px 15px 0px;
+    background: #99E2D0;
+    opacity: 0; /* Invisible par défaut */
+    transform: translateX(20%); /* Déplace l'élément à droite */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Transition pour l'opacité et la transformation */
+    }
+    
+.check img {
+    max-width: 60%;
+    max-height: 60%;
+    display: block;
+    }
+    
+.h:hover .param{
+    width: 85%;
+    transition: transform 0.3s ease-in-out;
+    transform: translate(0); /* Rétrécit le bouton de 15% */
+    
+}
+
+.h:hover h3 + p{ 
+    
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    overflow: hidden; /* Cache le texte qui dépasse */
+    text-overflow: ellipsis; /* Affiche les points de suspension */
+    max-width: 230px;
+}
+    
+.h:hover .check {
+    opacity: 1; /* Devient visible au survol */
+    transform: translateX(0); /* Revient à sa position d'origine */    width: 15%;
+    }
+
+.link__command{
+        transition: transform 450ms 0ms, opacity 300ms 2000ms;
+        display: grid;
+        place-items: center; /* Centre horizontalement et verticalement */
+        width: 100%; 
+        padding-bottom: 40px;
+        padding-top:25px;
+    & :hover {
+           
+        transform: scale(1.01);
+        opacity: 0.8;
+        }
+    }    
+    
+.command__buton {
+        @include button-style;
+       margin: 0 auto;
+    }
+    
+.texte-bouton  {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18.75px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color:$text-white;
+    }
+
+#margin-bottom{
+    margin-bottom: 25px;
+}
+
+// Début animation check //
+/* Animation  */
+.menu-group {
+    opacity: 0; /* Masquer par défaut */
+    transform: translateY(20px); /* Départ légèrement vers le bas */
+    animation: fadeInUp 0.5s forwards; /* Animation à appliquer */
+}
+
+.menu-group .h {
+    opacity: 0; /* Masquer par défaut */
+    transform: translateY(20px); /* Départ légèrement vers le bas */
+    animation: fadeInUp 0.5s forwards; /* Animation à appliquer */
+}
+
+@keyframes fadeInUp {
+to {
+    opacity: 1; /* Rendre visible */
+    transform: translateY(0); /* Remonter à la position originale */
+}
+}
+
+/* Appliquez un délai à chaque bouton */
+.menu-group .h:nth-child(1) {
+    animation-delay: 0s; /* Premier bouton des entrées */
+    }
+    
+    .menu-group .h:nth-child(2) {
+    animation-delay: 0.5s; /* Deuxième bouton des entrées */
+    }
+    
+    .menu-group .h:nth-child(3) {
+    animation-delay: 0.7s; /* Troisième bouton des entrées */
+    }
+// Fin animation check //
+// Début de FOOTER //
+
+a{
+    text-decoration: none;
+    padding-left: 15px;
+}
+
+.footer {
+   
+    height: 160px; 
+    top: 2066px;
+    background-color: $text-secondary;
+    padding: 22px 0px 22px 20px; // Combine padding et padding-left
+    gap: 16px;
+    opacity: 1; // Change pour rendre visible
+    @media (min-width: 1025px){
+       display: flex;
+       flex-direction: row-reverse;
+       height: 50px;
+       padding-top: 50px;
+       padding-bottom: 5px;
+     }
+
+.footer__title {
+    width: 137.58px;
+    height: 25px;
+    gap: 0;
+    opacity: 1; // Change pour rendre visible
+    font-family: Shrikhand;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 26.24px;
+    text-align: left;
+    color: $text-white;
+    margin-bottom: 10px;
+
+    @media (min-width: 1025px){
+        padding-left: 50px;
+        padding-right: 50px;
+        width: 100px;
+        height: 20px;
+        }
+    }
+
+.footer__link {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18.75px;
+    text-align: left;
+    color: $text-white; // Utilisez la même couleur
+    margin-bottom: 0px;
+    margin-top: 10px;
+
+    @media (min-width: 1025px){
+        margin-top: 0px;
+        }
+    }
+
+    .link-container {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+}
+@media (min-width: 1025px){
+    .partenariat{
+        display: flex;
+        flex-direction: row;
+        margin-right: 25px;
+        padding-right: 15px;
+        padding-left: 25px;
+    }
+}
+
+@media (min-width: 1025px){
+    .Contact{
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+
+@media (min-width: 1025px){
+    .footer__links--container{
+        display: flex;
+        flex-direction: row;
+        margin-left: 50px;
+    }
+}
+
+
+// FIN de FOOTER //
+
