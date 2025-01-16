@@ -165,6 +165,7 @@ header {
 
 .param {
   margin-bottom: 25px;
+  padding-left: 10px;
 }
 
 .h h3 {
@@ -209,7 +210,10 @@ header {
   }
 }
 
-.check {
+.check-choice {
+  display: flex; /* Active Flexbox pour le conteneur */
+  justify-content: center; /* Centre horizontalement */
+  align-items: center;
   position: absolute;
   right: 0%;
   bottom: 0%;
@@ -222,16 +226,15 @@ header {
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Transition pour l'opacité et la transformation */
 }
 
-.check img {
-  max-width: 60%;
-  max-height: 60%;
-  display: block;
-}
-
 .h:hover .param {
-  width: 85%;
+  width: 78%;
   transition: transform 0.3s ease-in-out;
   transform: translate(0); /* Rétrécit le bouton de 15% */
+}
+@media (min-width: 1025px) {
+  .h:hover .param {
+    width: 85%;
+  }
 }
 
 .h:hover h3 + p {
@@ -241,7 +244,7 @@ header {
   max-width: 230px;
 }
 
-.h:hover .check {
+.h:hover .check-choice {
   opacity: 1; /* Devient visible au survol */
   transform: translateX(0); /* Revient à sa position d'origine */
   width: 15%;
@@ -318,11 +321,6 @@ header {
   animation-delay: 0.7s; /* Troisième bouton des entrées */
 }
 
-a {
-  text-decoration: none;
-  padding-left: 15px;
-}
-
 .footer {
   height: 160px;
   top: 2066px;
@@ -363,6 +361,8 @@ a {
   }
 }
 .footer .footer__link {
+  display: flex;
+  flex-direction: column;
   font-family: Roboto;
   font-size: 16px;
   font-weight: 500;
@@ -382,12 +382,8 @@ a {
   align-items: baseline;
   gap: 10px;
 }
-.footer a {
-  text-decoration: none;
-}
-
 @media (min-width: 1025px) {
-  .partenariat {
+  .footer .partenariat {
     display: flex;
     flex-direction: row;
     margin-right: 25px;
@@ -396,17 +392,25 @@ a {
   }
 }
 @media (min-width: 1025px) {
-  .Contact {
+  .footer .Contact {
     display: flex;
     flex-direction: row;
   }
 }
 @media (min-width: 1025px) {
-  .footer__links--container {
+  .footer .footer__links--container {
     display: flex;
     flex-direction: row;
     margin-left: 50px;
   }
+}
+@media (min-width: 1025px) {
+  .footer a {
+    padding-left: 15px;
+  }
+}
+.footer a {
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=menu.css.map */

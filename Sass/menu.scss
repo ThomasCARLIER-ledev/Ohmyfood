@@ -176,6 +176,7 @@ header {
 
 .param{
     margin-bottom: 25px;
+    padding-left: 10px;
 }
 .h h3{
     font-family: Roboto;
@@ -219,7 +220,11 @@ header {
         }
     }
     
-.check {
+.check-choice {
+    display: flex; /* Active Flexbox pour le conteneur */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center;
+
     position: absolute;
     right:0% ;
     bottom : 0%;
@@ -232,17 +237,16 @@ header {
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Transition pour l'opacité et la transformation */
     }
     
-.check img {
-    max-width: 60%;
-    max-height: 60%;
-    display: block;
-    }
+
     
 .h:hover .param{
-    width: 85%;
+    width: 78%;
     transition: transform 0.3s ease-in-out;
     transform: translate(0); /* Rétrécit le bouton de 15% */
     
+    @media (min-width: 1025px){
+       width: 85%;
+      }
 }
 
 .h:hover h3 + p{ 
@@ -253,7 +257,7 @@ header {
     max-width: 230px;
 }
     
-.h:hover .check {
+.h:hover .check-choice {
     opacity: 1; /* Devient visible au survol */
     transform: translateX(0); /* Revient à sa position d'origine */    width: 15%;
     }
@@ -327,20 +331,14 @@ to {
     }
 // Fin animation check //
 // Début de FOOTER //
-
-a{
-    text-decoration: none;
-    padding-left: 15px;
-}
-
 .footer {
-   
     height: 160px; 
     top: 2066px;
     background-color: $text-secondary;
     padding: 22px 0px 22px 20px; // Combine padding et padding-left
     gap: 16px;
     opacity: 1; // Change pour rendre visible
+    
     @media (min-width: 1025px){
        display: flex;
        flex-direction: row-reverse;
@@ -349,78 +347,87 @@ a{
        padding-bottom: 5px;
      }
 
-.footer__title {
-    width: 137.58px;
-    height: 25px;
-    gap: 0;
-    opacity: 1; // Change pour rendre visible
-    font-family: Shrikhand;
-    font-size: 18px;
-    font-style: italic;
-    font-weight: 400;
-    line-height: 26.24px;
-    text-align: left;
-    color: $text-white;
-    margin-bottom: 10px;
-
-    @media (min-width: 1025px){
-        padding-left: 50px;
-        padding-right: 50px;
-        width: 100px;
-        height: 20px;
+     .footer__title {
+        width: 137.58px;
+        height: 25px;
+        gap: 0;
+        opacity: 1; // Change pour rendre visible
+        font-family: Shrikhand;
+        font-size: 18px;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 26.24px;
+        text-align: left;
+        color: $text-white;
+        margin-bottom: 10px;
+    
+        @media (min-width: 1025px){
+            padding-left: 50px;
+            padding-right: 50px;
+            width: 100px;
+            height: 20px;
+            }
         }
-    }
 
-.footer__link {
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 18.75px;
-    text-align: left;
-    color: $text-white; // Utilisez la même couleur
-    margin-bottom: 0px;
-    margin-top: 10px;
+        .footer__link {
+            display: flex;
+            flex-direction: column;
+            font-family: Roboto;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 18.75px;
+            text-align: left;
+            color: $text-white; // Utilisez la même couleur
+            margin-bottom: 0px;
+            margin-top: 10px;
+        
+            @media (min-width: 1025px){
+                margin-top: 0px;
+                }
+            }
 
-    @media (min-width: 1025px){
-        margin-top: 0px;
+        
+            .link-container {
+                display: flex;
+                align-items: baseline;
+                gap: 10px;
+            }
+
+            @media (min-width: 1025px){
+                .partenariat{
+                    display: flex;
+                    flex-direction: row;
+                    margin-right: 25px;
+                    padding-right: 15px;
+                    padding-left: 25px;
+                }
+            }
+            
+            @media (min-width: 1025px){
+                .Contact{
+                    display: flex;
+                    flex-direction: row;
+                }
+            }
+            
+            
+            @media (min-width: 1025px){
+                .footer__links--container{
+                    display: flex;
+                    flex-direction: row;
+                    margin-left: 50px;
+                }
+            }
+            
+            @media (min-width: 1025px){
+            a{
+                padding-left: 15px;
+            }
         }
-    }
 
-    .link-container {
-        display: flex;
-        align-items: baseline;
-        gap: 10px;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-}
-@media (min-width: 1025px){
-    .partenariat{
-        display: flex;
-        flex-direction: row;
-        margin-right: 25px;
-        padding-right: 15px;
-        padding-left: 25px;
-    }
-}
-
-@media (min-width: 1025px){
-    .Contact{
-        display: flex;
-        flex-direction: row;
-    }
-}
-
-
-@media (min-width: 1025px){
-    .footer__links--container{
-        display: flex;
-        flex-direction: row;
-        margin-left: 50px;
-    }
+        a{
+            text-decoration: none;
+        }
 }
 
 
